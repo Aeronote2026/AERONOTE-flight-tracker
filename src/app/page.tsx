@@ -1,17 +1,19 @@
+import Link from "next/link";
 import { InstrumentCard } from "@/components/InstrumentCard";
 import { Logo } from "@/components/Logo";
+import { formatDuration } from "@/lib/duration";
 
-// Placeholder readings until the logbook (Step 2) is connected.
+// Example readings for the welcome page (always HH:MM, never decimals).
 const instruments = [
-  { label: "Total time", value: "0.0", unit: "h" },
-  { label: "Dual", value: "0.0", unit: "h" },
-  { label: "Solo", value: "0.0", unit: "h" },
+  { label: "Total time", value: formatDuration(0) },
+  { label: "Dual", value: formatDuration(0) },
+  { label: "Solo", value: formatDuration(0) },
   { label: "Landings", value: "0" },
 ];
 
 const roadmap = [
-  { step: "01", title: "Foundation", status: "Active" },
-  { step: "02", title: "Digital logbook", status: "Next" },
+  { step: "01", title: "Foundation", status: "Done" },
+  { step: "02", title: "Digital logbook", status: "Active" },
   { step: "03", title: "Dashboard", status: "Planned" },
   { step: "04", title: "EASA licence progress", status: "Planned" },
   { step: "05", title: "Accounts & polish", status: "Planned" },
@@ -44,8 +46,22 @@ export default function Home() {
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
           Log every flight, watch your hours build up and see how close you
-          are to your licence. Flight logging arrives in the next step.
+          are to your licence.
         </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            href="/login"
+            className="flex h-12 items-center rounded-xl bg-amber px-6 text-base font-semibold text-cockpit"
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/register"
+            className="flex h-12 items-center rounded-xl border border-panel-edge px-6 text-base font-semibold"
+          >
+            Create account
+          </Link>
+        </div>
       </section>
 
       <section aria-labelledby="instruments">

@@ -12,8 +12,8 @@ A personal flight logbook and training tracker for **EASA student pilots**
 | --------------- | ----------------------------- |
 | App framework   | Next.js (App Router) + TypeScript |
 | Styling         | Tailwind CSS                  |
-| Database & auth | Supabase *(added in a later step)* |
-| Hosting         | Vercel *(added in a later step)*   |
+| Database & auth | Supabase (email + password sign-in) |
+| Hosting         | Vercel                            |
 
 ## Folder structure
 
@@ -33,6 +33,7 @@ npm install
 npm run dev      # open http://localhost:3000
 npm run build    # production build check
 npm run lint     # code quality check
+npm test         # automatic tests (HH:MM duration rules)
 ```
 
 See [`docs/PROJECT_PLAN.md`](docs/PROJECT_PLAN.md) for the roadmap.
