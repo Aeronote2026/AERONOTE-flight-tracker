@@ -7,7 +7,7 @@ import {
 } from "@/lib/supabase/config";
 
 /** Pages that require a signed-in pilot. */
-const PROTECTED_PREFIXES = ["/logbook", "/lab"];
+const PROTECTED_PREFIXES = ["/logbook", "/aviation-map", "/lab"];
 /** Pages a signed-in pilot does not need (sent to the logbook instead). */
 const SIGNED_OUT_ONLY = ["/login", "/register"];
 

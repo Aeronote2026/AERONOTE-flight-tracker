@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import { signOut } from "@/app/auth/actions";
 import { InstrumentCard } from "@/components/InstrumentCard";
-import { Logo } from "@/components/Logo";
+import { SuiteNav } from "@/components/suite/SuiteNav";
 import { formatDuration } from "@/lib/duration";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
@@ -31,22 +30,8 @@ const EMPTY_TOTALS: Totals = {
 
 export default function LogbookPage() {
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-5 pb-12 pt-[max(2rem,env(safe-area-inset-top))] sm:px-8">
-      <header className="flex items-center gap-4">
-        <Logo size={44} />
-        <div>
-          <h1 className="text-xl font-bold tracking-[0.25em]">AERONOTE</h1>
-          <p className="text-sm text-muted">Logbook</p>
-        </div>
-        <form action={signOut} className="ml-auto">
-          <button
-            type="submit"
-            className="h-11 rounded-xl border border-panel-edge px-4 text-sm font-semibold text-muted hover:text-ink"
-          >
-            Sign out
-          </button>
-        </form>
-      </header>
+    <main className="suite-page mx-auto flex w-full max-w-5xl flex-1 flex-col gap-8 px-5 pt-[max(1.5rem,env(safe-area-inset-top))] sm:px-8">
+      <SuiteNav subtitle="My Logbook" />
 
       <Suspense fallback={<p className="text-muted">Loading your logbook…</p>}>
         <LogbookContent />

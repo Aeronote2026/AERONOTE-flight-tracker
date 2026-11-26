@@ -36,3 +36,11 @@ body {
   background: var(--cockpit);
   color: var(--ink);
 }
+
+/* Main Suite pages: leave room for the phone tab bar (incl. iOS safe area). */
+.suite-page {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 768px) {
+  .suite-page { padding-bottom: 3rem; }
+}
