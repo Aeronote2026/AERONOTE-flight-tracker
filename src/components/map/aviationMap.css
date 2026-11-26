@@ -1,0 +1,92 @@
+/* My Aviation Map: AERONOTE look for MapLibre popups and markers. */
+.aeronote-popup .maplibregl-popup-content {
+  background: #0e1729;
+  color: #e8edf5;
+  border: 1px solid #1e2a42;
+  border-radius: 16px;
+  padding: 14px 40px 14px 16px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.45);
+}
+.aeronote-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.aeronote-popup.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.aeronote-popup.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: #0e1729;
+}
+.aeronote-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.aeronote-popup.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.aeronote-popup.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: #0e1729;
+}
+.aeronote-popup .maplibregl-popup-close-button {
+  color: #8a97ad;
+  font-size: 22px;
+  width: 40px;
+  height: 40px;
+  right: 2px;
+  top: 2px;
+}
+
+/* VFR-chart-like aerodrome symbol: amber ring with a centre dot. */
+.aero-marker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 4px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.aero-marker__ring {
+  position: relative;
+  border-radius: 9999px;
+  border: 3px solid #f5a524;
+  background: rgb(7 13 26 / 0.85);
+  box-shadow: 0 0 0 2px rgb(7 13 26 / 0.7), 0 0 14px rgb(245 165 36 / 0.45);
+}
+.aero-marker__ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: #f5a524;
+}
+.aero-marker--s .aero-marker__ring { width: 14px; height: 14px; }
+.aero-marker--m .aero-marker__ring { width: 18px; height: 18px; }
+.aero-marker--l .aero-marker__ring { width: 24px; height: 24px; }
+.aero-marker__label {
+  font: 600 11px/1 ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: 0.06em;
+  color: #e8edf5;
+  background: rgb(7 13 26 / 0.8);
+  border: 1px solid #1e2a42;
+  border-radius: 6px;
+  padding: 3px 5px;
+}
+[data-labels="off"] .aero-marker__label { display: none; }
+[data-labels="off"] .aero-marker { min-width: 44px; justify-content: center; padding: 0; }
+.aero-marker:focus-visible { outline: 2px solid #f5a524; outline-offset: 2px; border-radius: 12px; }
+
+.aeronote-logo { margin: 0 0 6px 6px; }
+.aeronote-logo img { height: 22px; width: auto; display: block; }
+
+/* Map controls in the AERONOTE cockpit palette (default MapLibre is white). */
+.maplibregl-ctrl-group {
+  background: #0e1729 !important;
+  border: 1px solid #1e2a42;
+  box-shadow: none !important;
+}
+.maplibregl-ctrl-group button { width: 44px; height: 44px; }
+.maplibregl-ctrl-group button + button { border-top: 1px solid #1e2a42 !important; }
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon { filter: invert(0.85); }
+.maplibregl-ctrl-scale {
+  background: rgb(7 13 26 / 0.8) !important;
+  color: #e8edf5 !important;
+  border-color: #8a97ad !important;
+  font: 600 11px/1.6 ui-monospace, Menlo, monospace;
+}
